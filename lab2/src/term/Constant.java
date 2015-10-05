@@ -3,10 +3,10 @@ package term;
 import java.util.Set;
 
 public class Constant implements Term {
-    private String value;
+    private String name;
 
     public Constant(String value) {
-        this.value = value;
+        this.name = value;
     }
 
     public Set<Variable> collectVariables(Set<Variable> set) {
@@ -14,9 +14,13 @@ public class Constant implements Term {
     }
 
     public String toString() {
-        return value;
+        return name;
     }
 
+    /**
+     * A constant contains no substitutable variables and thus a
+     * "substitution" may only return the constant itself.
+     */
 	@Override
 	public Term substitute(Variable x, Term term) {
 		return this;

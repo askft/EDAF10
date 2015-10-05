@@ -19,6 +19,9 @@ public class Function implements Term {
         return name + list;
     }
 
+    /**
+     * (f(x, ...)[x\t] = f(t, ...)
+     */
 	@Override
 	public Term substitute(Variable x, Term term) {
 		return new Function(name, list.substitute(x, term));

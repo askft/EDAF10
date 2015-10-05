@@ -46,6 +46,11 @@ public class Variable implements Term {
         return name;
     }
 
+    /**
+     * v[x\t] =
+     * 			t if v == x
+     * 			v if v != x
+     */
 	@Override
 	public Term substitute(Variable x, Term term) {
 		if (this.equals(x)) {

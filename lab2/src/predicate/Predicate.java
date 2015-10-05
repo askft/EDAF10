@@ -4,7 +4,7 @@ import term.Term;
 import term.TermList;
 import term.Variable;
 
-public class Predicate implements Expr {
+public class Predicate implements Expression {
 	
 	String str;
 	TermList terms;
@@ -15,12 +15,12 @@ public class Predicate implements Expr {
 	}
 
 	@Override
-	public Expr substitute(Variable variable, Term term) {
-		return new Predicate(str, terms.substitute(variable, term));
-	}
-	
-	@Override
 	public String toString() {
 		return str + terms;
+	}
+
+	@Override
+	public Expression substitute(Variable variable, Term term) {
+		return new Predicate(str, terms.substitute(variable, term));
 	}
 }
